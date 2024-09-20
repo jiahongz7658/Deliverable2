@@ -8,11 +8,12 @@
 </head>
 <body>
    <header>
-       <h1>{{ meet_name }}</h1>
+       <h1>{{ mens_meet_name }}</h1>
        <nav>
            <ul>
                <li><a href="index.html">Home</a></li>
-               <li><a href="{{ team_results_link }}">Meet Details</a></li>
+               <li><a href="{{ mens_team_results_link }}">Men's Meet Details</a></li>
+               <li><a href="{{ womens_team_results_link }}">Women's Meet Details</a></li>
            </ul>
        </nav>
    </header>
@@ -20,58 +21,102 @@
        <section id="meet-details">
            <h2>Meet Details</h2>
            <article>
-               <h3 id="meet-name">{{ meet_name }}</h3>
-               <p id="meet-date">{{ meet_date }}</p>
-               <p>{{ race_comments }}</p>
+               <h3 id="meet-name">{{ mens_meet_name }}</h3>
+               <p id="meet-date">{{ mens_meet_date }}</p>
+               <p>{{ mens_race_comments }}</p>
            </article>
        </section>
-       <section id="team-results">
-           <h2>Team Results</h2>
-           <table>
-               <thead>
-                   <tr>
-                       <th>Place</th>
-                       <th>Team</th>
-                       <th>Score</th>
-                   </tr>
-               </thead>
-               <tbody id="team-data">
-                   {% for team in teams %}
-                   <tr>
-                       <td>{{ team.Place }}</td>
-                       <td>{{ team.Team }}</td>
-                       <td>{{ team.Score }}</td>
-                   </tr>
-                   {% endfor %}
-               </tbody>
-           </table>
-       </section>
-       <section id="athlete-results">
-           <h2>Athlete Results</h2>
-           <table>
-               <thead>
-                   <tr>
-                       <th>Place</th>
-                       <th>Grade</th>
-                       <th>Name</th>
-                       <th>Time/Score</th>
-                       <th>Team</th>
-                       <th>Image</th>
-                   </tr>
-               </thead>
-               <tbody id="athlete-data">
-                   {% for athlete in athletes %}
-                   <tr>
-                       <td>{{ athlete.Place }}</td>
-                       <td>{{ athlete.Grade }}</td>
-                       <td><a href="{{ athlete['Athlete Link'] }}">{{ athlete.Name }}</a></td>
-                       <td>{{ athlete.Time }}</td>
-                       <td><a href="{{ athlete['Team Link'] }}">{{ athlete.Team }}</a></td>
-                       <td><img src="{{ athlete['Profile Pic'] }}" alt="Image of {{ athlete.Name }}" /></td>
-                   </tr>
-                   {% endfor %}
-               </tbody>
-           </table>
+       <section id="results">
+           <div class="column">
+               <h2>Men's Team Results</h2>
+               <table>
+                   <thead>
+                       <tr>
+                           <th>Place</th>
+                           <th>Team</th>
+                           <th>Score</th>
+                       </tr>
+                   </thead>
+                   <tbody id="men-team-data">
+                       {% for team in men_teams %}
+                       <tr>
+                           <td>{{ team.Place }}</td>
+                           <td>{{ team.Team }}</td>
+                           <td>{{ team.Score }}</td>
+                       </tr>
+                       {% endfor %}
+                   </tbody>
+               </table>
+               
+               <h2>Men's Athlete Results</h2>
+               <table>
+                   <thead>
+                       <tr>
+                           <th>Place</th>
+                           <th>Grade</th>
+                           <th>Name</th>
+                           <th>Time/Score</th>
+                           <th>Team</th>
+                       </tr>
+                   </thead>
+                   <tbody id="men-athlete-data">
+                       {% for athlete in men_athletes %}
+                       <tr>
+                           <td>{{ athlete.Place }}</td>
+                           <td>{{ athlete.Grade }}</td>
+                           <td><a href="{{ athlete['Athlete Link'] }}">{{ athlete.Name }}</a></td>
+                           <td>{{ athlete.Time }}</td>
+                           <td><a href="{{ athlete['Team Link'] }}">{{ athlete.Team }}</a></td>
+                       </tr>
+                       {% endfor %}
+                   </tbody>
+               </table>
+           </div>
+           <div class="column">
+               <h2>Women's Team Results</h2>
+               <table>
+                   <thead>
+                       <tr>
+                           <th>Place</th>
+                           <th>Team</th>
+                           <th>Score</th>
+                       </tr>
+                   </thead>
+                   <tbody id="women-team-data">
+                       {% for team in women_teams %}
+                       <tr>
+                           <td>{{ team.Place }}</td>
+                           <td>{{ team.Team }}</td>
+                           <td>{{ team.Score }}</td>
+                       </tr>
+                       {% endfor %}
+                   </tbody>
+               </table>
+               
+               <h2>Women's Athlete Results</h2>
+               <table>
+                   <thead>
+                       <tr>
+                           <th>Place</th>
+                           <th>Grade</th>
+                           <th>Name</th>
+                           <th>Time/Score</th>
+                           <th>Team</th>
+                       </tr>
+                   </thead>
+                   <tbody id="women-athlete-data">
+                       {% for athlete in women_athletes %}
+                       <tr>
+                           <td>{{ athlete.Place }}</td>
+                           <td>{{ athlete.Grade }}</td>
+                           <td><a href="{{ athlete['Athlete Link'] }}">{{ athlete.Name }}</a></td>
+                           <td>{{ athlete.Time }}</td>
+                           <td><a href="{{ athlete['Team Link'] }}">{{ athlete.Team }}</a></td>
+                       </tr>
+                       {% endfor %}
+                   </tbody>
+               </table>
+           </div>
        </section>
    </main>
    <footer>
