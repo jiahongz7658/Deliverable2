@@ -31,16 +31,23 @@ def read_csv_data(csv_file):
     # Transform data into dictionary format
     teams = team_results.to_dict(orient='records')
     athletes = athlete_results.to_dict(orient='records')
-    
+
     # Drop the 'Profile Pic' column from the athlete data
     for athlete in athletes:
         athlete.pop('Profile Pic', None)
-    
+
+    # Filter out empty entries
+    teams = [team for team in teams if team['Place'] and team['Team'] and team['Score']]
+
     return meet_name, meet_date, team_results_link, race_comments, teams, athletes
 
 # Read data from men's and women's CSV files
 mens_meet_name, mens_meet_date, mens_team_results_link, mens_race_comments, men_teams, men_athletes = read_csv_data(mens_csv_file)
 womens_meet_name, womens_meet_date, womens_team_results_link, womens_race_comments, women_teams, women_athletes = read_csv_data(womens_csv_file)
+
+# Debug prints to check the data
+print("Cleaned Men's Teams:", men_teams)
+print("Cleaned Women's Teams:", women_teams)
 
 # Setup Jinja2 environment and load the template
 env = Environment(loader=FileSystemLoader(searchpath="."))
@@ -58,7 +65,7 @@ context = {
     'womens_meet_date': womens_meet_date,
     'womens_team_results_link': womens_team_results_link,
     'womens_race_comments': womens_race_comments,
-    'woman_teams': women_teams,
+    'women_teams': women_teams,
     'women_athletes': women_athletes
 }
 

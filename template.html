@@ -4,7 +4,6 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Meet Results Website</title>
-   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
    <header>
@@ -27,96 +26,98 @@
            </article>
        </section>
        <section id="results">
-           <div class="column">
-               <h2>Men's Team Results</h2>
-               <table>
-                   <thead>
-                       <tr>
-                           <th>Place</th>
-                           <th>Team</th>
-                           <th>Score</th>
-                       </tr>
-                   </thead>
-                   <tbody id="men-team-data">
-                       {% for team in men_teams %}
-                       <tr>
-                           <td>{{ team.Place }}</td>
-                           <td>{{ team.Team }}</td>
-                           <td>{{ team.Score }}</td>
-                       </tr>
-                       {% endfor %}
-                   </tbody>
-               </table>
-               
-               <h2>Men's Athlete Results</h2>
-               <table>
-                   <thead>
-                       <tr>
-                           <th>Place</th>
-                           <th>Grade</th>
-                           <th>Name</th>
-                           <th>Time/Score</th>
-                           <th>Team</th>
-                       </tr>
-                   </thead>
-                   <tbody id="men-athlete-data">
-                       {% for athlete in men_athletes %}
-                       <tr>
-                           <td>{{ athlete.Place }}</td>
-                           <td>{{ athlete.Grade }}</td>
-                           <td><a href="{{ athlete['Athlete Link'] }}">{{ athlete.Name }}</a></td>
-                           <td>{{ athlete.Time }}</td>
-                           <td><a href="{{ athlete['Team Link'] }}">{{ athlete.Team }}</a></td>
-                       </tr>
-                       {% endfor %}
-                   </tbody>
-               </table>
-           </div>
-           <div class="column">
-               <h2>Women's Team Results</h2>
-               <table>
-                   <thead>
-                       <tr>
-                           <th>Place</th>
-                           <th>Team</th>
-                           <th>Score</th>
-                       </tr>
-                   </thead>
-                   <tbody id="women-team-data">
-                       {% for team in women_teams %}
-                       <tr>
-                           <td>{{ team.Place }}</td>
-                           <td>{{ team.Team }}</td>
-                           <td>{{ team.Score }}</td>
-                       </tr>
-                       {% endfor %}
-                   </tbody>
-               </table>
-               
-               <h2>Women's Athlete Results</h2>
-               <table>
-                   <thead>
-                       <tr>
-                           <th>Place</th>
-                           <th>Grade</th>
-                           <th>Name</th>
-                           <th>Time/Score</th>
-                           <th>Team</th>
-                       </tr>
-                   </thead>
-                   <tbody id="women-athlete-data">
-                       {% for athlete in women_athletes %}
-                       <tr>
-                           <td>{{ athlete.Place }}</td>
-                           <td>{{ athlete.Grade }}</td>
-                           <td><a href="{{ athlete['Athlete Link'] }}">{{ athlete.Name }}</a></td>
-                           <td>{{ athlete.Time }}</td>
-                           <td><a href="{{ athlete['Team Link'] }}">{{ athlete.Team }}</a></td>
-                       </tr>
-                       {% endfor %}
-                   </tbody>
-               </table>
-           </div>
+           <table>
+               <tr>
+                   <td valign="top">
+                       <h2>Men's Team Results</h2>
+                       <table border="1">
+                           <thead>
+                               <tr>
+                                   <th>Place</th>
+                                   <th>Team</th>
+                                   <th>Score</th>
+                               </tr>
+                           </thead>
+                           <tbody id="men-team-data">
+                               {% for team in men_teams %}
+                               <tr>
+                                   <td>{{ team.Place }}</td>
+                                   <td>{{ team.Team }}</td>
+                                   <td>{{ team.Score }}</td>
+                               </tr>
+                               {% endfor %}
+                           </tbody>
+                       </table>
+                       <h2>Men's Athlete Results</h2>
+                       <table border="1">
+                           <thead>
+                               <tr>
+                                   <th>Place</th>
+                                   <th>Grade</th>
+                                   <th>Name</th>
+                                   <th>Time/Score</th>
+                                   <th>Team</th>
+                               </tr>
+                           </thead>
+                           <tbody id="men-athlete-data">
+                               {% for athlete in men_athletes %}
+                               <tr>
+                                   <td>{{ athlete.Place }}</td>
+                                   <td>{{ athlete.Grade }}</td>
+                                   <td><a href="{{ athlete['Athlete Link'] }}">{{ athlete.Name }}</a></td>
+                                   <td>{{ athlete.Time }}</td>
+                                   <td><a href="{{ athlete['Team Link'] }}">{{ athlete.Team }}</a></td>
+                               </tr>
+                               {% endfor %}
+                           </tbody>
+                       </table>
+                   </td>
+                   <td valign="top">
+                       <h2>Women's Team Results</h2>
+                       <table border="1">
+                           <thead>
+                               <tr>
+                                   <th>Place</th>
+                                   <th>Team</th>
+                                   <th>Score</th>
+                               </tr>
+                           </thead>
+                           <tbody id="women-team-data">
+                               {% for team in women_teams %}
+                               <tr>
+                                   <td>{{ team.Place }}</td>
+                                   <td>{{ team.Team }}</td>
+                                   <td>{{ team.Score }}</td>
+                               </tr>
+                               {% endfor %}
+                           </tbody>
+                       </table>
+                       <h2>Women's Athlete Results</h2>
+                       <table border="1">
+                           <thead>
+                               <tr>
+                                   <th>Place</th>
+                                   <th>Grade</th>
+                                   <th>Name</th>
+                                   <th>Time/Score</th>
+                                   <th>Team</th>
+                               </tr>
+                           </thead>
+                           <tbody id="women-athlete-data">
+                               {% for athlete in women_athletes %}
+                               <tr>
+                                   <td>{{ athlete.Place }}</td>
+                                   <td>{{ athlete.Grade }}</td>
+                                   <td><a href="{{ athlete['Athlete Link'] }}">{{ athlete.Name }}</a></td>
+                                   <td>{{ athlete.Time }}</td>
+                                   <td><a href="{{ athlete['Team Link'] }}">{{ athlete.Team }}</a></td>
+                               </tr>
+                               {% endfor %}
+                           </tbody>
+                       </table>
+                   </td>
+               </tr>
+           </table>
        </section>
    </main>
    <footer>
